@@ -17,4 +17,27 @@ struct TriviaModel {
     var correctResponseString: String {
         return "What is " + correctResponse + "?"
     }
+    
+    enum questionValue {
+        case oneHundred
+        case twoHundred
+        case threeHundred
+        case fourHundred
+        case fiveHundred
+    }
+    
+    enum gameType {
+        case single
+        case double
+        
+        var gameValue: Int {
+            
+            switch self {
+            case .single:
+                return 1
+            case .double:
+                return 2
+            }
+        }
+    }
 }

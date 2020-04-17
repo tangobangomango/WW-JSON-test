@@ -8,31 +8,13 @@
 
 import UIKit
 
-class TriviaViewController: UITableViewController, TriviaManagerDelegate {
-    
-    
-    func didUpdateTriviaData(_ triviaManager: TriviaManager, triviaModel: [TriviaModel]) {
-        DispatchQueue.main.async {
-            self.questionsAndAnswers = triviaModel
-            print("triviaModel returned")
-//            print(self.questionsAndAnswers)
-            self.tableView.reloadData()
-        }
-        
-    }
-    
-    func didFailWithError(error: Error) {
-        print(error)
-    }
-    
+class TriviaViewController: UITableViewController {
     
     var questionsAndAnswers: [TriviaModel] = []
     
     
     // this has to be a var because we use it below (E.g, to set the delegate)
     var triviaManager = TriviaManager()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +23,14 @@ class TriviaViewController: UITableViewController, TriviaManagerDelegate {
         triviaManager.delegate = self
         print("Going to fetch")
         triviaManager.fetchTrivia()
+//        tableView.rowHeight = UITableView.automaticDimension
+//        tableView.estimatedRowHeight = 100
     }
 
 
 }
+
+// MARK: - TableView delegate methods
 
 extension TriviaViewController {
     
@@ -70,17 +56,24 @@ extension TriviaViewController {
             cell.valueLabel.text = String(questionValue)
         }
         
-        
-//        cell.answerLabel.text = questionsAndAnswers[indexPath.row][0]
-//        cell.questionLabel.text = questionsAndAnswers[indexPath.row][1]
-        
-//        cell.answerLabel.text = "Number 1 answer"
-//        cell.questionLabel.text = "Number 1 question"
-        
         return cell
-        
+    }
+}
+
+// MARK: - TriviaManagerDelegate Methods
+
+extension TriviaViewController: TriviaManagerDelegate {
+    
+    func didUpdateTriviaData(_ triviaManager: TriviaManager, triviaModel: [TriviaModel]) {
+        DispatchQueue.main.async {
+            self.questionsAndAnswers = triviaModel
+            print("triviaModel returned")
+            self.tableView.reloadData()
+        }
     }
     
-    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
 }
 

@@ -74,28 +74,42 @@ struct TriviaManager {
                 let oneAnswer = clue.answer
                 let oneQuestion = clue.question
                 let oneValue = clue.value
-//                print("A: \(oneAnswer) \n")
-//                print("Q: \(oneQuestion) \n")
-//                print("V: \(String(describing: oneValue)) \n")
+
                 if category != "" && oneAnswer != "" && oneQuestion != "" && oneValue != nil {
                   content.append(TriviaModel(categoryName: category, correctResponse: oneAnswer, cardContent: oneQuestion, value: oneValue))
                 }
-                
             }
             
-//            let answer = jsonData.clues[0].answer
-//            let question = jsonData.clues[0].question
-//            let value = jsonData.clues[0].value
-//            
-//            let content = TriviaModel(categoryName: category, correctResponse: answer, cardContent: question, value: value)
-//            let content = TriviaModel(categoryName: category)
+            let selectedContent = selectContent(contentArray: content, forType: .double)
+            return selectedContent
             
-            return content
         }  catch let error {
             
             delegate?.didFailWithError(error: error)
             return nil
             
         }
+    }
+    
+    func selectContent(contentArray: [TriviaModel], forType: TriviaModel.gameType) -> [TriviaModel] {
+        
+        var selected = [TriviaModel]()
+        let gameToPlay = forType.gameValue
+        
+        let shuffledArray = contentArray.shuffled()
+        let sortedArray = shuffledArray.sorted(by: { $0.value! < $1.value! })
+
+            for content in sortedArray {
+                for index in 1...5 {
+                    if content.value == (100 * index * gameToPlay) {
+                        while selected.count == index - 1 {
+                           selected.append(content)
+                        }
+                    }
+                }
+            }
+        
+        return selected
+        
     }
 }
