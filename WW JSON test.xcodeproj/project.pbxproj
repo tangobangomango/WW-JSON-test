@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		4161CD892448BAAB007F8137 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4161CD882448BAAB007F8137 /* AppDelegate.swift */; };
 		4161CD8B2448BAAB007F8137 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4161CD8A2448BAAB007F8137 /* SceneDelegate.swift */; };
-		4161CD8D2448BAAB007F8137 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4161CD8C2448BAAB007F8137 /* ViewController.swift */; };
+		4161CD8D2448BAAB007F8137 /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4161CD8C2448BAAB007F8137 /* TriviaViewController.swift */; };
 		4161CD902448BAAB007F8137 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4161CD8E2448BAAB007F8137 /* Main.storyboard */; };
 		4161CD922448BAAF007F8137 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4161CD912448BAAF007F8137 /* Assets.xcassets */; };
 		4161CD952448BAAF007F8137 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4161CD932448BAAF007F8137 /* LaunchScreen.storyboard */; };
+		4161CD9D2448BB01007F8137 /* TriviaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4161CD9C2448BB01007F8137 /* TriviaData.swift */; };
+		4161CD9F2448C045007F8137 /* TriviaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4161CD9E2448C045007F8137 /* TriviaModel.swift */; };
+		4161CDA22448C647007F8137 /* TriviaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4161CDA12448C647007F8137 /* TriviaManager.swift */; };
+		4161CDA82448D5EA007F8137 /* TriviaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4161CDA72448D5EA007F8137 /* TriviaTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4161CD852448BAAB007F8137 /* WW JSON test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WW JSON test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4161CD882448BAAB007F8137 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4161CD8A2448BAAB007F8137 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4161CD8C2448BAAB007F8137 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4161CD8C2448BAAB007F8137 /* TriviaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaViewController.swift; sourceTree = "<group>"; };
 		4161CD8F2448BAAB007F8137 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4161CD912448BAAF007F8137 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4161CD942448BAAF007F8137 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4161CD962448BAAF007F8137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4161CD9C2448BB01007F8137 /* TriviaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaData.swift; sourceTree = "<group>"; };
+		4161CD9E2448C045007F8137 /* TriviaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaModel.swift; sourceTree = "<group>"; };
+		4161CDA12448C647007F8137 /* TriviaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaManager.swift; sourceTree = "<group>"; };
+		4161CDA72448D5EA007F8137 /* TriviaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +66,25 @@
 			children = (
 				4161CD882448BAAB007F8137 /* AppDelegate.swift */,
 				4161CD8A2448BAAB007F8137 /* SceneDelegate.swift */,
-				4161CD8C2448BAAB007F8137 /* ViewController.swift */,
+				4161CD8C2448BAAB007F8137 /* TriviaViewController.swift */,
+				4161CDA72448D5EA007F8137 /* TriviaTableViewCell.swift */,
 				4161CD8E2448BAAB007F8137 /* Main.storyboard */,
 				4161CD912448BAAF007F8137 /* Assets.xcassets */,
 				4161CD932448BAAF007F8137 /* LaunchScreen.storyboard */,
 				4161CD962448BAAF007F8137 /* Info.plist */,
+				4161CDA02448C62B007F8137 /* Model */,
 			);
 			path = "WW JSON test";
+			sourceTree = "<group>";
+		};
+		4161CDA02448C62B007F8137 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4161CD9C2448BB01007F8137 /* TriviaData.swift */,
+				4161CD9E2448C045007F8137 /* TriviaModel.swift */,
+				4161CDA12448C647007F8137 /* TriviaManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +158,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4161CD8D2448BAAB007F8137 /* ViewController.swift in Sources */,
+				4161CD9D2448BB01007F8137 /* TriviaData.swift in Sources */,
+				4161CD9F2448C045007F8137 /* TriviaModel.swift in Sources */,
+				4161CDA22448C647007F8137 /* TriviaManager.swift in Sources */,
+				4161CDA82448D5EA007F8137 /* TriviaTableViewCell.swift in Sources */,
+				4161CD8D2448BAAB007F8137 /* TriviaViewController.swift in Sources */,
 				4161CD892448BAAB007F8137 /* AppDelegate.swift in Sources */,
 				4161CD8B2448BAAB007F8137 /* SceneDelegate.swift in Sources */,
 			);
